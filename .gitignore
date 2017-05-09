@@ -1,0 +1,20 @@
+# dependencies
+/node_modules
+
+# dist
+/dist
+
+# IDE
+/.idea
+/.awcache
+
+# misc
+.env
+yarn.lock
+npm-debug.log
+/ts-node-*
+
+# tests
+/test
+/coverage
+/.nyc_output

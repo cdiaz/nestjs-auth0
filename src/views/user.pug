@@ -1,0 +1,8 @@
+extends layout
+
+block content
+  img.profile-img(src=user.picture)
+  .profile-text
+   h1.profile-name Hi, #{user.nickname}!
+   br
+   a(href='/logout') Logout
