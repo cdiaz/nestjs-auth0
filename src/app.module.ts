@@ -1,4 +1,4 @@
-import { Module, MiddlewaresConsumer, RequestMethod } from 'nest.js';
+import { Module, MiddlewaresConsumer, RequestMethod } from '@nestjs/common';
 import { EnsureLoggedIn } from './app.middleware';
 import { AppController } from './app.controller';
 
@@ -7,13 +7,13 @@ import { AppController } from './app.controller';
 })
 
 export class ApplicationModule {
-	
-   configure(consumer: MiddlewaresConsumer) {
+
+  configure(consumer: MiddlewaresConsumer) {
 		consumer
 		.apply(EnsureLoggedIn)
 		.forRoutes({
 	        path: 'user',
 	        method: RequestMethod.ALL
 		})
-	} 
+	}
 }

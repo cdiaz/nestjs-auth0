@@ -1,5 +1,5 @@
+import { NestFactory } from '@nestjs/core';
 import * as express from 'express';
-import { NestFactory } from 'nest.js';
 import * as path from 'path';
 import * as bodyParser from 'body-parser';
 import * as cookieParser from 'cookie-parser';
@@ -26,15 +26,15 @@ app.use(session({
   resave: true,
   saveUninitialized: true
 }));
-// Init passport authentication 
+// Init passport authentication
 app.use(passport.initialize());
-// persistent login sessions 
+// persistent login sessions
 app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'assets')));
 
 const nest = NestFactory.create(ApplicationModule, app);
 
-nest.listen(process.env.PORT || 3000,() => 
+nest.listen(process.env.PORT || 3000,() =>
 	{
 	    console.log(`Nest app is listening on port ${process.env.PORT}.`);
 	}
