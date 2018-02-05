@@ -9,33 +9,31 @@ import * as passport from 'passport';
 import { ApplicationModule } from './app.module';
 import { PassportService } from './passport.service';
 
-const app = express();
-
 new PassportService(passport);
 
-// view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'pug');
+async function bootstrap() {
+  const app = await NestFactory.create(ApplicationModule);
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
-app.use(cookieParser());
-app.use(session({
-  secret: 'shhhhhhhhh',
-  resave: true,
-  saveUninitialized: true
-}));
-// Init passport authentication
-app.use(passport.initialize());
-// persistent login sessions
-app.use(passport.session());
-app.use(express.static(path.join(__dirname, 'assets')));
+  app.set('views', path.join(__dirname, 'views'));
+  app.set('view engine', 'pug');
+  
+  app.use(bodyParser.json());
+  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(cors());
+  app.use(cookieParser());
+  app.use(session({
+    secret: 'shhhhhhhhh',
+    resave: true,
+    saveUninitialized: true
+  }));
+  // Init passport authentication
+  app.use(passport.initialize());
+  // persistent login sessions
+  app.use(passport.session());
+  app.use(express.static(path.join(__dirname, 'assets')));
+  await app.listen(process.env.PORT || 3000,() => {
+    console.log(`Nest app is listening on port ${process.env.PORT}.`);
+  })
+}
 
-const nest = NestFactory.create(ApplicationModule, app);
-
-nest.listen(process.env.PORT || 3000,() =>
-	{
-	    console.log(`Nest app is listening on port ${process.env.PORT}.`);
-	}
-);
+bootstrap();

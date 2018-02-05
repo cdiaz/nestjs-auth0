@@ -1,6 +1,6 @@
 {
   "name": "auth0-nestjs-regular-webapp-sample",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "NestJS + Auth0 Regular WebApp seed",
   "repository": "git://github.com/cdiaz/nestjs-auth0",
   "author": "cdiaz",
@@ -9,10 +9,10 @@
     "start": "nodemon -w *.*.ts --exec ts-node ./src/main.ts"
   },
   "dependencies": {
-    "@nestjs/common": "~2.*",
-    "@nestjs/core": "~2.*",
-    "@nestjs/microservices": "~2.*",
-    "@nestjs/websockets": "~2.*",
+    "@nestjs/common": "^4.5.9",
+    "@nestjs/core": "^4.5.10",
+    "@nestjs/microservices": "^4.5.8",
+    "@nestjs/websockets": "^4.5.8",
     "body-parser": "~1.17.1",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.2",
