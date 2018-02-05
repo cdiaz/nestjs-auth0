@@ -13,21 +13,21 @@
     "@nestjs/core": "^4.5.10",
     "@nestjs/microservices": "^4.5.8",
     "@nestjs/websockets": "^4.5.8",
-    "body-parser": "~1.17.1",
+    "body-parser": "~1.18.2",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.2",
-    "dotenv": "^4.0.0",
+    "dotenv": "^5.0.0",
     "express-session": "^1.11.3",
-    "passport": "^0.3.0",
+    "passport": "^0.4.0",
     "passport-auth0": "^0.6.0",
     "pug": "~2.0.0-beta3",
     "reflect-metadata": "^0.1.10",
     "rxjs": "^5.4.0"
   },
   "devDependencies": {
-    "@types/node": "^7.0.18",
+    "@types/node": "^9.4.0",
     "nodemon": "^1.11.0",
-    "ts-node": "^3.0.2",
+    "ts-node": "^4.1.0",
     "typescript": "^2.2.2"
   }
 }
