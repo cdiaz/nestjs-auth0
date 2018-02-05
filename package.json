@@ -6,7 +6,13 @@
   "author": "cdiaz",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon -w *.*.ts --exec ts-node ./src/main.ts"
+    "start": "ts-node ./src/main.ts",
+    "start:watch": "nodemon -w *.*.ts --exec ts-node ./src/main.ts",
+    "assets": "cp -r ./src/assets/ ./dist/assets/",
+    "views": "cp -r ./src/views/ ./dist/views/",
+    "build": "tsc -p . && npm run views && npm run assets",
+    "prestart:prod": "npm run build",
+    "start:prod": "node dist/main.js"
   },
   "dependencies": {
     "@nestjs/common": "^4.5.9",
