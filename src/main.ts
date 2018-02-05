@@ -16,7 +16,7 @@ async function bootstrap() {
 
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'pug');
-  
+
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(cors());
@@ -31,7 +31,7 @@ async function bootstrap() {
   // persistent login sessions
   app.use(passport.session());
   app.use(express.static(path.join(__dirname, 'assets')));
-  await app.listen(3000,() => {
+  await app.listen(3000, () => {
     console.log(`Nest app is listening on port ${process.env.PORT}.`);
   })
 }
