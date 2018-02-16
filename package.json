@@ -15,22 +15,22 @@
     "start:prod": "node dist/main.js"
   },
   "dependencies": {
-    "@nestjs/common": "^4.5.9",
-    "@nestjs/core": "^4.5.10",
-    "@nestjs/microservices": "^4.5.8",
+    "@nestjs/common": "^4.6.3",
+    "@nestjs/core": "^4.6.3",
+    "@nestjs/microservices": "^4.6.1",
     "@nestjs/websockets": "^4.5.8",
     "dotenv": "^5.0.0",
-    "express-session": "^1.11.3",
+    "express-session": "^1.15.6",
     "passport": "^0.4.0",
-    "passport-auth0": "^0.6.0",
-    "pug": "~2.0.0-beta3",
-    "reflect-metadata": "^0.1.10",
-    "rxjs": "^5.4.0"
+    "passport-auth0": "^0.6.1",
+    "pug": "~2.0.0-rc.4",
+    "reflect-metadata": "^0.1.12",
+    "rxjs": "^5.5.6"
   },
   "devDependencies": {
-    "@types/node": "^9.4.0",
-    "nodemon": "^1.11.0",
+    "@types/node": "^9.4.6",
+    "nodemon": "^1.15.0",
     "ts-node": "^4.1.0",
-    "typescript": "^2.2.2"
+    "typescript": "^2.7.2"
   }
 }
