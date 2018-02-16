@@ -2,7 +2,7 @@ import { Module, MiddlewaresConsumer, RequestMethod } from '@nestjs/common';
 import { EnsureLoggedIn } from './app.middleware';
 import { AppController } from './app.controller';
 import { Auth0Strategy } from './auth0.strategy';
-import * as passport from 'passport';
+import { authenticate } from 'passport';
 
 @Module({
   components: [ Auth0Strategy ],
@@ -15,7 +15,7 @@ export class ApplicationModule {
     consumer
       .apply(EnsureLoggedIn)
       .forRoutes({ path: 'user', method: RequestMethod.ALL })
-      .apply(passport.authenticate('auth0', {
+      .apply(authenticate('auth0', {
         successRedirect: '/user',
         failureRedirect: '/'
       }))

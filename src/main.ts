@@ -11,16 +11,17 @@ async function bootstrap() {
 
   app.set('views', path.join(__dirname, 'views'));
   app.set('view engine', 'pug');
+  app.use(express.static(path.join(__dirname, 'assets')));
   app.use(session({
-    secret: 'shhhhhhhhh',
+    secret: process.env.SECRET_KEY,
     resave: true,
     saveUninitialized: true
   }));
   app.use(passport.initialize());
   app.use(passport.session());
-  app.use(express.static(path.join(__dirname, 'assets')));
-  await app.listen(3000, () => {
-    console.log(`Nest app is listening on port ${process.env.PORT}.`);
+  const PORT = process.env.PORT;
+  await app.listen(PORT, () => {
+    console.log(`Nest app is listening on port ${PORT}.`);
   })
 }
 

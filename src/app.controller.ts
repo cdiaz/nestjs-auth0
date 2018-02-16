@@ -1,25 +1,25 @@
-import { Controller, Get, Req, Res, Next, HttpStatus } from '@nestjs/common';
+import { Controller, Get, Res, Req, Render } from '@nestjs/common';
 import { AUTH0_CLIENT_ID, AUTH0_DOMAIN, AUTH0_CALLBACK_URL } from './common/constants'
 
 @Controller()
 export class AppController {
 
   @Get()
-  public index( @Res() res) {
-    res.render('index', {
+  @Render('index')
+  public index() {
+    return {
       title: 'NestJS + Auth0',
       env: { AUTH0_CLIENT_ID, AUTH0_DOMAIN, AUTH0_CALLBACK_URL }
-    });
+    };
   }
 
   @Get('/callback')
   public callback() {}
 
   @Get('/user')
-  public user( @Req() req, @Res() res) {
-    res.render('user', {
-      user: req.user 
-    });
+  @Render('user')
+  public user( @Req() req) {
+    return { user: req.user };
   }
 
   @Get('/logout')

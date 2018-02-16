@@ -1,4 +1,4 @@
-import * as passport from 'passport';
+import { use, serializeUser, deserializeUser } from 'passport';
 import { Strategy } from 'passport-auth0';
 import { Component } from '@nestjs/common';
 
@@ -17,13 +17,13 @@ export class Auth0Strategy extends Strategy {
         return done(null, profile);
       }
     )
-    passport.use(this);
+    use(this);
 
-    passport.serializeUser((user, done) => {
+    serializeUser((user, done) => {
       done(null, user);
     })
   
-    passport.deserializeUser((user, done) => {
+    deserializeUser((user, done) => {
       done(null, user);
     })
   }
