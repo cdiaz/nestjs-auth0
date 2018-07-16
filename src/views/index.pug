@@ -1,35 +1,7 @@
 extends layout
 
 block content
-  script(src="https://cdn.auth0.com/js/lock/10.0/lock.min.js")
-
   img(src="http://nestjs.com/img/logo.png")
   h1 #{title}
   br
-  button.btn(onclick="signin()") Login
-
-  script.
-    var lock = new Auth0Lock('#{env.AUTH0_CLIENT_ID}', '#{env.AUTH0_DOMAIN}', 
-    { 
-      languageDictionary: {
-        title: "NestJS + Auth0"
-      },
-      closable: true,
-      auth: {
-        redirectUrl: '#{env.AUTH0_CALLBACK_URL}',
-        responseType: 'code',
-        params: {
-          scope: 'openid name email picture'
-        }
-      },
-      theme: {
-        logo: 'https://camo.githubusercontent.com/604585d64eaf4f34e54463735ff2891a8842c72c/687474703a2f2f6b616d696c6d79736c69776965632e636f6d2f7075626c69632f6e6573742d6c6f676f2e706e67',
-        primaryColor: '#e93333',
-        labeledSubmitButton: true
-      }  
-      }
-    );
-
-    function signin() {
-      lock.show();
-    }
+  a.btn(href="/login") Login

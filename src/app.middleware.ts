@@ -1,6 +1,6 @@
-import { Middleware, NestMiddleware } from '@nestjs/common';
+import {Injectable, NestMiddleware} from '@nestjs/common';
 
-@Middleware()
+@Injectable()
 export class EnsureLoggedIn implements NestMiddleware {
   resolve() {
     return (req, res, next) => {

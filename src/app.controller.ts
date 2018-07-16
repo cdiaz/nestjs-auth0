@@ -3,7 +3,6 @@ import { AUTH0_CLIENT_ID, AUTH0_DOMAIN, AUTH0_CALLBACK_URL } from './common/cons
 
 @Controller()
 export class AppController {
-
   @Get()
   @Render('index')
   public index() {
@@ -12,6 +11,9 @@ export class AppController {
       env: { AUTH0_CLIENT_ID, AUTH0_DOMAIN, AUTH0_CALLBACK_URL }
     };
   }
+
+  @Get('/login')
+  public login() {}
 
   @Get('/callback')
   public callback() {}

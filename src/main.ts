@@ -1,10 +1,10 @@
-import { NestFactory } from '@nestjs/core';
+import {NestFactory} from '@nestjs/core';
 import 'dotenv/config';
 import * as express from 'express';
 import * as path from 'path';
 import * as session from 'express-session';
 import * as passport from 'passport';
-import { ApplicationModule } from './app.module';
+import {ApplicationModule} from './app.module';
 
 async function bootstrap() {
   const app = await NestFactory.create(ApplicationModule);
